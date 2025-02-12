@@ -12,13 +12,10 @@ const QueryProvider = ({ children }: React.PropsWithChildren) => {
     const [_, navigate] = useLocation();
     const toast = useCallback((status?: number) => {
         if (status === 401) {
+            navigate('/login', { replace: true })
             toaster.error({
                 title: "Unauthorized. Please login.",
                 id: 'auth_error',
-                action: {
-                    label: "Login",
-                    onClick: () => navigate('/login'),
-                },
             })
         }
     }, [navigate])

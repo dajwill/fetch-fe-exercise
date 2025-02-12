@@ -29,7 +29,7 @@ const Dogs = () => {
                     <SortButton />
                 </HStack>
                 <SimpleGrid columns={{ base: 2, md: 4 }} gap="2">
-                    {detailsLoading ? (
+                    {detailsLoading || isLoading ? (
                         <SkeletonGallery />
                     ): (
                         dogs?.map((dog) => (
