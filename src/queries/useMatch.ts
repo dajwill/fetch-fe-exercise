@@ -1,7 +1,6 @@
 import { API_HOST } from "@/config"
 import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
-import { useLocation } from "wouter"
 
 const GET_MATCH = async (ids: string[]): Promise<string> => {
     try {
@@ -12,12 +11,8 @@ const GET_MATCH = async (ids: string[]): Promise<string> => {
     }
 }
 
-const useMatch = () => {
-    const [_, navigate] = useLocation();
-    return useMutation({
-        mutationFn: GET_MATCH,
-        onSuccess: (data) => navigate(`/match/${data}`)
-    })
-}
+const useMatch = () => useMutation({
+    mutationFn: GET_MATCH,
+})
 
 export default useMatch;
