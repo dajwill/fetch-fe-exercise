@@ -1,5 +1,7 @@
 # Fetch FE Exercise
 
+https://fetch-fe-exercise.netlify.app/browse
+
 To run this project locally, clone the project and create a `.env` in the root of the project with the following key/value pair:
 
 ```
