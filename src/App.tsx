@@ -1,5 +1,5 @@
 import { Provider } from './components/ui/provider'
-import { Route, Switch, useLocation } from 'wouter'
+import { Redirect, Route, Switch, useLocation } from 'wouter'
 import Login from './pages/Login'
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Dogs from './pages/Dogs'
@@ -17,7 +17,7 @@ const QueryProvider = ({ children }: React.PropsWithChildren) => {
                 id: 'auth_error',
                 action: {
                     label: "Login",
-                    onClick: () => navigate('/'),
+                    onClick: () => navigate('/login'),
                 },
             })
         }
@@ -44,9 +44,10 @@ function App() {
             <QueryProvider>
                 <Navbar position="sticky" top="0" zIndex="docked" />
                 <Switch>
-                    <Route path="/" component={Login} />
+                    <Route path="/login" component={Login} />
                     <Route path="/browse" component={Dogs} />
                     <Route path="/match/:id" component={Favorites} />
+                    <Redirect to="/browse" />
                 </Switch>
             </QueryProvider>
             <Toaster />

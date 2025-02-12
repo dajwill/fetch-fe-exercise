@@ -30,7 +30,7 @@ const Navbar = (props: BoxProps) => {
     }
     const logout = () => {
         postLogout(undefined, {
-            onSuccess: () => navigate('/')
+            onSuccess: () => navigate('/login')
         })
     }
 
